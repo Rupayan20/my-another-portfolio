@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme (Professional & Clean) */
+    --background: 0.98 0.01 250;
+    --foreground: 0.15 0.02 250;
+
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 250;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 250;
+
+    --primary: 0.45 0.2 260;
+    --primary-foreground: 0.98 0.01 250;
+
+    --secondary: 0.94 0.02 250;
+    --secondary-foreground: 0.2 0.05 250;
+
+    --muted: 0.94 0.02 250;
+    --muted-foreground: 0.45 0.05 250;
+
+    --accent: 0.94 0.02 250;
+    --accent-foreground: 0.2 0.05 250;
+
+    --destructive: 0.5 0.2 25;
+    --destructive-foreground: 0.98 0.01 250;
+
+    --border: 0.9 0.02 250;
+    --input: 0.9 0.02 250;
+    --ring: 0.45 0.2 260;
+
+    --sidebar-background: 0.98 0.01 250;
+    --sidebar-foreground: 0.15 0.02 250;
+    --sidebar-primary: 0.45 0.2 260;
+    --sidebar-primary-foreground: 0.98 0.01 250;
+    --sidebar-accent: 0.94 0.02 250;
+    --sidebar-accent-foreground: 0.15 0.02 250;
+    --sidebar-border: 0.9 0.02 250;
+    --sidebar-ring: 0.45 0.2 260;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark Theme (Premium Developer) */
+    --background: 0.14 0.01 285;
+    --foreground: 0.98 0.01 285;
+
+    --card: 0.17 0.015 285;
+    --card-foreground: 0.98 0.01 285;
+
+    --popover: 0.14 0.01 285;
+    --popover-foreground: 0.98 0.01 285;
+
+    --primary: 0.5 0.25 275;
+    --primary-foreground: 0.98 0.01 285;
+
+    --secondary: 0.2 0.02 285;
+    --secondary-foreground: 0.98 0.01 285;
+
+    --muted: 0.2 0.02 285;
+    --muted-foreground: 0.65 0.02 285;
+
+    --accent: 0.25 0.05 275;
+    --accent-foreground: 0.98 0.01 285;
+
+    --destructive: 0.4 0.15 25;
+    --destructive-foreground: 0.98 0.01 285;
+
+    --border: 0.22 0.02 285;
+    --input: 0.22 0.02 285;
+    --ring: 0.5 0.25 275;
+
+    --sidebar-background: 0.14 0.01 285;
+    --sidebar-foreground: 0.98 0.01 285;
+    --sidebar-primary: 0.5 0.25 275;
+    --sidebar-primary-foreground: 0.98 0.01 285;
+    --sidebar-accent: 0.2 0.02 285;
+    --sidebar-accent-foreground: 0.98 0.01 285;
+    --sidebar-border: 0.22 0.02 285;
+    --sidebar-ring: 0.5 0.25 275;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Custom scrollbar for premium feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: oklch(var(--background) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(var(--foreground) / 0.1);
+  }
+  .glass-card {
+    background-color: oklch(var(--card) / 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid oklch(var(--foreground) / 0.05);
+    box-shadow: 0 25px 50px -12px oklch(0 0 0 / 0.5);
+  }
+  .text-glow {
+    text-shadow: 0 0 20px oklch(var(--primary) / 0.5);
+  }
+}
