@@ -45,5 +45,3 @@ npx tsc --noEmit
 ## Lockfile policy
 
 This repository does not track `package-lock.json`.
-# my-another-portfolio
-# my-another-portfolio
