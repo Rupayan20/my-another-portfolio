@@ -4,8 +4,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
+
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import WhatsAppConnect from "./components/WhatsAppConnect";
+
+import "./App.css";
 
 const queryClient = new QueryClient();
 
@@ -13,15 +17,20 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="dark" attribute="class">
       <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+        <Toaster />
+        <Sonner />
+
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+
+            {/* ADD CUSTOM ROUTES ABOVE THIS ROUTE */}
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+
+          <WhatsAppConnect />
+        </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
