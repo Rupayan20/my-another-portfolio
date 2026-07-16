@@ -84,7 +84,7 @@ export const About = () => {
                 <div className="w-full h-full rounded-xl overflow-hidden bg-muted relative">
                   <img
                     src={
-                      "../src/images/profile.jpeg"
+                      "../public/images/profile.jpeg"
                     }
                     alt={portfolioData.personal.name}
                     className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
