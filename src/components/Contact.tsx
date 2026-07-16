@@ -68,9 +68,9 @@ export const Contact = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="sticky top-32"
+            className="lg:sticky lg:top-32 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 mb-8 mx-auto lg:mx-0">
               <span className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
@@ -78,24 +78,24 @@ export const Contact = () => {
               <span className="text-sm font-semibold tracking-wide uppercase">AVAILABLE FOR NEW PROJECTS</span>
             </div>
             
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-5 leading-tight">
               Let's Build a CRM <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">That Works Smarter.</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
               Need a GoHighLevel expert for CRM automation, AI-powered workflows, integrations, or a custom website? Let's build a reliable system designed around your business and built to scale.
             </p>
             
-            <div className="space-y-4">
+            <div className="space-y-4 max-w-xl mx-auto lg:mx-0">
               <a
                 href={`mailto:${portfolioData.personal.email}`}
-                className="flex items-center gap-4 p-6 rounded-2xl glass-card border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-1"
+                className="flex items-center gap-3 p-4 sm:p-6 rounded-2xl glass-card border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-1"
               >
                 <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Mail className="text-foreground group-hover:text-primary transition-colors" size={24} />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">Email Me</h3>
-                  <p className="text-muted-foreground text-sm">{portfolioData.personal.email}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm break-all">{portfolioData.personal.email}</p>
                 </div>
                 <ArrowRight className="ml-auto text-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
               </a>
@@ -104,7 +104,7 @@ export const Contact = () => {
                 href={portfolioData.personal.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-6 rounded-2xl glass-card border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-1"
+                className="flex items-center gap-3 p-4 sm:p-6 rounded-2xl glass-card border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-1"
               >
                 <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Linkedin className="text-foreground group-hover:text-primary transition-colors" size={24} />
@@ -120,7 +120,7 @@ export const Contact = () => {
                 href={portfolioData.personal.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-6 rounded-2xl glass-card border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-1"
+                className="flex items-center gap-3 p-4 sm:p-6 rounded-2xl glass-card border border-white/10 hover:border-primary/50 transition-all group hover:-translate-y-1"
               >
                 <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                   <Github className="text-foreground group-hover:text-primary transition-colors" size={24} />
@@ -138,11 +138,11 @@ export const Contact = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="glass-card p-2 md:p-4 rounded-3xl border border-foreground/10 relative"
+            className="glass-card p-2 md:p-4 rounded-3xl border border-foreground/10 relative mt-8 lg:mt-0"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-50 rounded-3xl pointer-events-none" />
             <div 
-              className="calendly-inline-widget w-full h-[700px] rounded-2xl overflow-hidden relative z-10 bg-background/50" 
+              className="calendly-inline-widget w-full h-[520px] md:h-[700px] rounded-2xl overflow-hidden relative z-10 bg-background/50" 
               data-url="https://calendly.com/duttarupayan?hide_gdpr_banner=1&background_color=0f0f11&text_color=ffffff&primary_color=7c3aed"
             ></div>
           </motion.div>

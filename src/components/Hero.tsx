@@ -42,7 +42,7 @@ export const Hero = () => {
   return (
     <section
       id="intro"
-      className="min-h-screen flex items-center pt-20 relative overflow-hidden"
+      className="min-h-screen flex items-center pt-28 lg:pt-20 relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
@@ -82,7 +82,7 @@ export const Hero = () => {
               Available for GHL & CRM Automation Projects
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
               <span className="block text-foreground">
                 GoHighLevel Developer
               </span>
@@ -91,14 +91,14 @@ export const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-8">
               {portfolioData.personal.bio}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#connect"
-                className="px-6 py-3 rounded-full bg-foreground text-background font-medium hover:opacity-90 transition-opacity flex items-center gap-2 group"
+                className="w-full sm:w-auto px-6 py-3 rounded-full bg-foreground text-background font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 group"
               >
                 Let's Work Together
                 <ArrowRight
@@ -108,7 +108,7 @@ export const Hero = () => {
               </a>
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full border border-foreground/10 bg-foreground/5 text-foreground font-medium hover:bg-foreground/10 transition-colors"
+                className="w-full sm:w-auto px-6 py-3 rounded-full border border-foreground/10 bg-foreground/5 text-foreground font-medium hover:bg-foreground/10 transition-colors text-center"
               >
                 View My Projects
               </a>
