@@ -21,7 +21,7 @@ const WhatsAppConnect = () => {
     <>
       <audio
         ref={audioRef}
-        src="../src/data/my_intro.mp3"
+        src="/my_intro.mp3"
         preload="auto"
       />
 

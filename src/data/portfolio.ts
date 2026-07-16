@@ -4,7 +4,7 @@ export const portfolioData = {
     headline: "Senior GHL Developer & CRM Automation Engineer",
     bio: "I build scalable GoHighLevel CRM systems, AI-powered automations, high-converting funnels, and custom websites that help businesses capture leads, automate follow-ups, and scale their operations.",
     calendlyUrl: "https://calendly.com/duttarupayan/30min",
-    resumeUrl: "../src/data/Rupayan Dutta Resume.pdf",
+    resumeUrl: "/Rupayan Dutta Resume.pdf",
     email: "projects.rupayandutta@gmail.com",
     socials: {
       linkedin: "https://www.linkedin.com/in/rupayan-dutta/",
