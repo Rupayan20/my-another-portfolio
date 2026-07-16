@@ -50,10 +50,10 @@ export const Experience = () => {
                   {/* Timeline dot */}
                   <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-background border-2 border-primary/50 group-hover:border-primary group-hover:bg-primary/20 transition-colors" />
                   
-                  <div className="glass-card p-6 rounded-2xl border border-foreground/5 group-hover:border-foreground/10 transition-colors">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
+                  <div className="glass-card p-6 md:p-7 rounded-2xl border border-foreground/5 group-hover:border-foreground/10 transition-colors text-left">
+                    <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-3">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-foreground leading-tight">{exp.role}</h3>
                         <p className="text-primary font-medium">{exp.company}</p>
                       </div>
                       <span className="text-sm text-muted-foreground px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5 w-fit">
@@ -61,17 +61,17 @@ export const Experience = () => {
                       </span>
                     </div>
                     
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <p className="text-muted-foreground mb-4 leading-7 text-left">{exp.description}</p>
                     
-                    <ul className="list-disc list-inside text-sm text-muted-foreground mb-6 space-y-1">
+                    <ul className="list-disc pl-5 text-sm text-muted-foreground mb-6 space-y-2">
                       {exp.responsibilities.map((resp, j) => (
                         <li key={j}>{resp}</li>
                       ))}
                     </ul>
                     
-                    <div className="flex flex-wrap gap-2 mt-auto">
+                    <div className="flex flex-wrap gap-2 mt-4 justify-start">
                       {exp.tech.map((tech) => (
-                        <span key={tech} className="text-xs px-2 py-1 rounded-md bg-foreground/5 text-foreground/70">
+                        <span key={tech} className="text-xs px-3 py-1 rounded-md bg-foreground/5 text-foreground/70">
                           {tech}
                         </span>
                       ))}
@@ -110,10 +110,10 @@ export const Experience = () => {
                 >
                   <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-background border-2 border-blue-500/50 group-hover:border-blue-500 group-hover:bg-blue-500/20 transition-colors" />
                   
-                  <div className="glass-card p-6 rounded-2xl border border-foreground/5 group-hover:border-foreground/10 transition-colors">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground">{edu.degree}</h3>
+                  <div className="glass-card p-6 md:p-7 rounded-2xl border border-foreground/5 group-hover:border-foreground/10 transition-colors text-left">
+                    <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-3">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-foreground leading-tight">{edu.degree}</h3>
                         <p className="text-blue-600 dark:text-blue-400 font-medium">{edu.institution}</p>
                       </div>
                       <span className="text-sm text-muted-foreground px-3 py-1 rounded-full bg-foreground/5 border border-foreground/5 w-fit">
