@@ -3,6 +3,8 @@
 // logic discussed earlier. Replace the TODO in handleSubmit with your
 // EmailJS service call from src/services/email.ts.
 
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
@@ -67,15 +69,18 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
   }, [resultOpen, result.success, onClose]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
 
     let newValue = value;
 
     // Allow only numbers and + in phone
+    // Allow only 10 digits in phone
     if (name === "phone") {
-      newValue = value.replace(/[^\d+]/g, "").slice(0, 15);
+      newValue = value.replace(/\D/g, "").slice(0, 10);
     }
 
     // Remove spaces from email
@@ -115,10 +120,22 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
     if (form.phone.trim() !== "") {
       const phone = form.phone.replace(/\D/g, "");
 
-      if (phone.length < 10 || phone.length > 15) {
-        newErrors.phone = "Phone number must contain 10 to 15 digits.";
+      if (form.phone && !isValidPhoneNumber(form.phone)) {
+        newErrors.phone = "Please enter a valid phone number.";
         valid = false;
       }
+    }
+
+    // Message Validation
+    if (form.message.trim().length < 20) {
+      newErrors.message =
+        "Please describe your project in at least 20 characters.";
+      valid = false;
+    }
+
+    if (form.message.length > 1000) {
+      newErrors.message = "Your message cannot exceed 1000 characters.";
+      valid = false;
     }
 
     setErrors(newErrors);
@@ -127,51 +144,6 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    const validateForm = () => {
-      const newErrors = {
-        email: "",
-        phone: "",
-        message: "",
-      };
-
-      let valid = true;
-
-      // Email Validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(form.email)) {
-        newErrors.email = "Please enter a valid email address.";
-        valid = false;
-      }
-
-      // Phone Validation (Optional)
-      if (form.phone.trim() !== "") {
-        const phone = form.phone.replace(/\D/g, "");
-
-        if (phone.length < 10 || phone.length > 15) {
-          newErrors.phone = "Phone number must contain 10 digits.";
-          valid = false;
-        }
-      }
-
-      // Message Validation
-      if (form.message.trim().length < 20) {
-        newErrors.message =
-          "Please describe your project in at least 20 characters.";
-        valid = false;
-      }
-
-      // Your Query Validation
-      if (form.message.length > 1000) {
-        newErrors.message = "Your message cannot exceed 1000 characters.";
-        valid = false;
-      }
-
-      setErrors(newErrors);
-
-      return valid;
-    };
-
     e.preventDefault();
 
     if (!validateForm()) {
@@ -269,16 +241,21 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                   <p className="text-sm text-red-500">{errors.email}</p>
                 )}
 
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number (Optional)"
-                  value={form.phone}
-                  onChange={handleChange}
-                  className={`w-full rounded-xl border bg-background p-3 ${
-                    errors.phone ? "border-red-500" : "border-gray-300"
-                  }`}
-                />
+                <div className="phone-input-wrapper">
+                  <PhoneInput
+                    international
+                    defaultCountry="IN"
+                    placeholder="Phone Number"
+                    value={form.phone}
+                    onChange={(value) =>
+                      setForm((prev) => ({
+                        ...prev,
+                        phone: value || "",
+                      }))
+                    }
+                  />
+                </div>
+
                 {errors.phone && (
                   <p className="text-sm text-red-500">{errors.phone}</p>
                 )}
