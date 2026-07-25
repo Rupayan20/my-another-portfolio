@@ -41,13 +41,15 @@ const AnimatedNumber = ({
   return (
     <div
       ref={ref}
-      className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors group shadow-sm"
+      className="group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-card to-card/80 p-7 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_15px_35px_rgba(0,73,193,0.18)]"
     >
-      <div className="text-4xl md:text-5xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+    <div className="absolute inset-0 rounded-2xl bg-[#0049C1]/5 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100" />
+    <div className="absolute left-0 top-0 h-[2px] w-0 bg-[#0049C1] transition-all duration-500 group-hover:w-full" />
+      <div className="mb-2 text-5xl md:text-6xl font-black tracking-tight text-foreground transition-all duration-500 group-hover:text-[#4D8DFF]">
         {displayValue}
         {suffix}
       </div>
-      <div className="text-sm text-muted-foreground uppercase tracking-wider font-medium text-center">
+      <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground font-medium text-center">
         {label}
       </div>
     </div>
@@ -83,9 +85,7 @@ export const About = () => {
               <div className="relative h-full w-full rounded-2xl overflow-hidden border border-border bg-card p-2 shadow-xl">
                 <div className="w-full h-full rounded-xl overflow-hidden bg-muted relative">
                   <img
-                    src={
-                      "/images/profile.jpeg"
-                    }
+                    src={"/images/profile.jpeg"}
                     alt={portfolioData.personal.name}
                     className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
                   />
@@ -93,22 +93,27 @@ export const About = () => {
                 </div>
               </div>
 
-              {/* Decorative elements */}
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -bottom-6 -right-6 w-24 h-24 bg-card rounded-full border border-border flex items-center justify-center shadow-xl z-20"
-              >
-                <div className="text-primary font-bold text-xl tracking-tighter">
-                  AI
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+              {/* Decorative Logo */}
+<motion.div
+  animate={{ y: [-10, 10, -10] }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="absolute -bottom-5 -right-5 z-20"
+>
+  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#081426] border border-[#0049C1]/20 shadow-[0_12px_30px_rgba(0,73,193,0.35)]">
+    <img
+      src="../images/rdLogo.png"
+      alt="RD Logo"
+      className="h-11 w-11 object-contain"
+      draggable={false}
+    />
+  </div>
+</motion.div>
+ </div>
+ </motion.div>
 
           {/* Content Side */}
           <motion.div

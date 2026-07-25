@@ -5,6 +5,7 @@ const logos = [
   "../images/Royalty_Renewables_Logo.jpg",
   "../images/Blackwire_Studio_Logo2.jpg",
   "../images/John_Dally_Logo.png",
+  "../images/Arrington_Consulting_Logo.png",
   "../images/Truthful_Kernel_Logo.jpeg",
   "../images/FuzeAI_Logo.png",
   "../images/Active_Solutions_Logo.jpg",

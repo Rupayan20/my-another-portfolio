@@ -15,6 +15,7 @@ import {
   Zap,
 } from "lucide-react";
 import { portfolioData } from "../data/portfolio";
+import HeroButtons from "./HeroButtons";
 
 export const Hero = () => {
   const mouseX = useMotionValue(0);
@@ -95,7 +96,7 @@ export const Hero = () => {
               {portfolioData.personal.bio}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#connect"
                 className="w-full sm:w-auto px-6 py-3 rounded-full bg-foreground text-background font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 group"
@@ -112,7 +113,8 @@ export const Hero = () => {
               >
                 View My Projects
               </a>
-            </div>
+            </div> */}
+            <HeroButtons />
           </motion.div>
 
           {/* Abstract Tech Visual / Narrative Visualization */}
